@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mini CRM</title>
+  <title>Mini CRM Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>📊 Mini CRM Dashboard</h1>
+<div class="container">
 
-<div class="form">
-  <input id="name" placeholder="Client Name">
-  <input id="email" placeholder="Email">
-  <input id="source" placeholder="Source (Website/Instagram)">
-  <textarea id="notes" placeholder="Follow-up Notes"></textarea>
+  <h1>📊 Mini CRM Dashboard</h1>
 
-  <button onclick="addLead()">Add Lead</button>
+  <div class="form">
+    <input id="name" placeholder="Client Name">
+    <input id="email" placeholder="Email">
+    <input id="source" placeholder="Source (Website/Instagram)">
+    <textarea id="notes" placeholder="Follow-up Notes"></textarea>
+
+    <button onclick="addLead()">Add Lead</button>
+  </div>
+
+  <h2>Leads</h2>
+  <div id="list"></div>
+
 </div>
-
-<h2>Leads</h2>
-<div id="list"></div>
 
 <script src="script.js"></script>
 </body>
