@@ -6,14 +6,18 @@
 </head>
 <body>
 
-<h1>Mini CRM Dashboard</h1>
+<h1>📊 Mini CRM Dashboard</h1>
 
 <div class="form">
-  <input id="name" placeholder="Name">
+  <input id="name" placeholder="Client Name">
   <input id="email" placeholder="Email">
+  <input id="source" placeholder="Source (Website/Instagram)">
+  <textarea id="notes" placeholder="Follow-up Notes"></textarea>
+
   <button onclick="addLead()">Add Lead</button>
 </div>
 
+<h2>Leads</h2>
 <div id="list"></div>
 
 <script src="script.js"></script>
