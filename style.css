@@ -1,48 +1,88 @@
 body {
-  font-family: Arial;
-  background: #f4f6f9;
   margin: 0;
-  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
 }
 
 h1 {
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: white;
-  padding: 15px;
+  text-align: center;
+  color: #38bdf8;
 }
 
+h2 {
+  margin-top: 30px;
+  color: #94a3b8;
+}
+
+/* FORM */
 .form {
-  margin: 20px;
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 input, textarea {
-  width: 80%;
+  width: 100%;
   padding: 10px;
-  margin: 8px;
+  margin: 10px 0;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: none;
+  background: #334155;
+  color: white;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #94a3b8;
 }
 
 button {
-  padding: 10px 20px;
-  background: #4facfe;
-  color: white;
+  width: 100%;
+  padding: 12px;
+  background: #38bdf8;
+  color: black;
+  font-weight: bold;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
+button:hover {
+  background: #0ea5e9;
+}
+
+/* CARD */
 .card {
-  background: white;
-  margin: 15px auto;
+  background: #1e293b;
+  margin: 15px 0;
   padding: 15px;
-  width: 80%;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: left;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
 }
 
 select {
-  margin-top: 5px;
-  padding: 5px;
+  margin-top: 10px;
+  padding: 6px;
+  border-radius: 6px;
+  background: #334155;
+  color: white;
+  border: none;
+}
+
+.card button {
+  margin-top: 10px;
+  background: #ef4444;
+  color: white;
+}
+
+.card button:hover {
+  background: #dc2626;
 }
