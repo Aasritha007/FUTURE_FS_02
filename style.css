@@ -71,7 +71,7 @@ body {
 }
 
 /* Inputs */
-input, select {
+input, textarea {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -79,6 +79,10 @@ input, select {
   border-radius: 6px;
   background: #0f172a;
   color: white;
+}
+
+textarea {
+  min-height: 80px;
 }
 
 /* Button */
@@ -95,7 +99,7 @@ button:hover {
   background: #2563eb;
 }
 
-/* Lead card */
+/* Client Card */
 .lead {
   background: #020617;
   margin-top: 10px;
