@@ -16,29 +16,33 @@ function showSection(id) {
   event.target.classList.add("active");
 }
 
-// Add Lead
+// Add Client
 async function addLead() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
-  const status = document.getElementById("status").value;
+  const phone = document.getElementById("phone").value;
+  const company = document.getElementById("company").value;
+  const notes = document.getElementById("notes").value;
 
   await fetch(`${API}/add`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, status })
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ name, email, phone, company, notes })
   });
 
-  alert("Lead Added!");
+  alert("Client Added!");
   getLeads();
 }
 
-// Get Leads
+// Get Clients
 async function getLeads() {
   const res = await fetch(`${API}/leads`);
   allLeads = await res.json();
 
   displayLeads(allLeads);
-  updateStats();
+  document.getElementById("total").innerText = allLeads.length;
 }
 
 // Display
@@ -53,7 +57,9 @@ function displayLeads(data) {
     div.innerHTML = `
       <p><b>${lead.name}</b></p>
       <p>${lead.email}</p>
-      <p>Status: ${lead.status}</p>
+      <p>${lead.phone || ""}</p>
+      <p>${lead.company || ""}</p>
+      <p>${lead.notes || ""}</p>
       <button onclick="deleteLead('${lead._id}')">Delete</button>
     `;
 
@@ -67,7 +73,7 @@ async function deleteLead(id) {
   getLeads();
 }
 
-// Filter
+// Search
 function filterLeads() {
   const text = document.getElementById("search").value.toLowerCase();
 
@@ -79,16 +85,5 @@ function filterLeads() {
   displayLeads(filtered);
 }
 
-// Stats
-function updateStats() {
-  document.getElementById("total").innerText = allLeads.length;
-
-  document.getElementById("hot").innerText =
-    allLeads.filter(l => l.status === "Hot").length;
-
-  document.getElementById("converted").innerText =
-    allLeads.filter(l => l.status === "Converted").length;
-}
-
-// Load on start
+// Load
 window.onload = getLeads;
