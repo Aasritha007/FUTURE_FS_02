@@ -1,16 +1,18 @@
 const API = "http://localhost:5000";
 
-// Tabs
-function openTab(tabId) {
-  document.querySelectorAll(".tab-content").forEach(tab => {
-    tab.classList.remove("active");
+let allLeads = [];
+
+// Navigation
+function showSection(id) {
+  document.querySelectorAll(".section").forEach(sec => {
+    sec.classList.remove("active");
   });
 
-  document.querySelectorAll(".tab-btn").forEach(btn => {
-    btn.classList.remove("active");
+  document.querySelectorAll(".sidebar li").forEach(li => {
+    li.classList.remove("active");
   });
 
-  document.getElementById(tabId).classList.add("active");
+  document.getElementById(id).classList.add("active");
   event.target.classList.add("active");
 }
 
@@ -27,25 +29,34 @@ async function addLead() {
   });
 
   alert("Lead Added!");
+  getLeads();
 }
 
 // Get Leads
 async function getLeads() {
   const res = await fetch(`${API}/leads`);
-  const data = await res.json();
+  allLeads = await res.json();
 
+  displayLeads(allLeads);
+  updateStats();
+}
+
+// Display
+function displayLeads(data) {
   const list = document.getElementById("leadList");
   list.innerHTML = "";
 
   data.forEach(lead => {
     const div = document.createElement("div");
     div.className = "lead";
+
     div.innerHTML = `
-      <p><b>Name:</b> ${lead.name}</p>
-      <p><b>Email:</b> ${lead.email}</p>
-      <p><b>Status:</b> ${lead.status}</p>
+      <p><b>${lead.name}</b></p>
+      <p>${lead.email}</p>
+      <p>Status: ${lead.status}</p>
       <button onclick="deleteLead('${lead._id}')">Delete</button>
     `;
+
     list.appendChild(div);
   });
 }
@@ -55,3 +66,29 @@ async function deleteLead(id) {
   await fetch(`${API}/delete/${id}`, { method: "DELETE" });
   getLeads();
 }
+
+// Filter
+function filterLeads() {
+  const text = document.getElementById("search").value.toLowerCase();
+
+  const filtered = allLeads.filter(l =>
+    l.name.toLowerCase().includes(text) ||
+    l.email.toLowerCase().includes(text)
+  );
+
+  displayLeads(filtered);
+}
+
+// Stats
+function updateStats() {
+  document.getElementById("total").innerText = allLeads.length;
+
+  document.getElementById("hot").innerText =
+    allLeads.filter(l => l.status === "Hot").length;
+
+  document.getElementById("converted").innerText =
+    allLeads.filter(l => l.status === "Converted").length;
+}
+
+// Load on start
+window.onload = getLeads;
