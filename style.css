@@ -1,65 +1,77 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI';
   background: #0f172a;
-  color: #fff;
-}
-
-.title {
-  text-align: center;
-  padding: 20px;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-/* Tabs */
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.tab-btn {
-  padding: 10px 20px;
-  border: none;
-  background: #1e293b;
   color: white;
+}
+
+.container {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background: #020617;
+  height: 100vh;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px;
   cursor: pointer;
-  border-radius: 8px;
-  transition: 0.3s;
+  border-radius: 6px;
+  margin: 10px 0;
 }
 
-.tab-btn:hover {
-  background: #334155;
-}
-
-.tab-btn.active {
+.sidebar li:hover,
+.sidebar li.active {
   background: #3b82f6;
 }
 
-/* Tab Content */
-.tab-content {
-  display: none;
+/* Main */
+.main {
+  flex: 1;
   padding: 20px;
 }
 
-.tab-content.active {
+.section {
+  display: none;
+}
+
+.section.active {
   display: block;
 }
 
-/* Card */
+/* Cards */
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
 .card {
-  max-width: 500px;
-  margin: auto;
-  padding: 20px;
   background: #1e293b;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
 }
 
 /* Inputs */
-input {
+input, select {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -69,9 +81,9 @@ input {
   color: white;
 }
 
-/* Buttons */
+/* Button */
 button {
-  padding: 10px 15px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   background: #3b82f6;
@@ -83,9 +95,9 @@ button:hover {
   background: #2563eb;
 }
 
-/* Lead Card */
+/* Lead card */
 .lead {
-  background: #0f172a;
+  background: #020617;
   margin-top: 10px;
   padding: 10px;
   border-radius: 8px;
