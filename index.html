@@ -1,13 +1,67 @@
-<div id="addLead" class="section">
-  <div class="card">
-    <h2>Add Client</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CRM Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <input id="name" placeholder="Full Name">
-    <input id="email" placeholder="Email Address">
-    <input id="phone" placeholder="Phone Number">
-    <input id="company" placeholder="Company Name">
-    <textarea id="notes" placeholder="Notes"></textarea>
+<div class="container">
 
-    <button onclick="addLead()">Save Client</button>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>CRM</h2>
+    <ul>
+      <li onclick="showSection('dashboard')" class="active">Dashboard</li>
+      <li onclick="showSection('addLead')">Add Client</li>
+      <li onclick="showSection('leads')">Clients</li>
+    </ul>
   </div>
+
+  <!-- Main -->
+  <div class="main">
+    <h1>Customer Relationship Management</h1>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="section active">
+      <div class="cards">
+        <div class="card stat">
+          <h3>Total Clients</h3>
+          <p id="total">0</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Client -->
+    <div id="addLead" class="section">
+      <div class="card">
+        <h2>Add Client</h2>
+
+        <input id="name" placeholder="Full Name">
+        <input id="email" placeholder="Email Address">
+        <input id="phone" placeholder="Phone Number">
+        <input id="company" placeholder="Company Name">
+        <textarea id="notes" placeholder="Notes"></textarea>
+
+        <button onclick="addLead()">Save Client</button>
+      </div>
+    </div>
+
+    <!-- Clients -->
+    <div id="leads" class="section">
+      <div class="card">
+        <h2>Clients</h2>
+        <input id="search" placeholder="Search..." onkeyup="filterLeads()">
+        <button onclick="getLeads()">Refresh</button>
+        <div id="leadList"></div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
+
+<script src="script.js"></script>
+</body>
+</html>
