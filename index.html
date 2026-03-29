@@ -1,29 +1,32 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="en">
 <head>
-  <title>Mini CRM Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aasritha Jerripothula | Mini CRM</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="container">
-
-  <h1>📊 Mini CRM Dashboard</h1>
-
-  <div class="form">
-    <input id="name" placeholder="Client Name">
-    <input id="email" placeholder="Email">
-    <input id="source" placeholder="Source (Website/Instagram)">
-    <textarea id="notes" placeholder="Follow-up Notes"></textarea>
-
+  <header>
+    <h1>AASRITHA JERRIPOTHULA</h1>
+    <p>Mini CRM - Client Lead Management</p>
+  </header>  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab('dashboard')">Dashboard</button>
+    <button class="tab-btn" onclick="openTab('add')">Add Lead</button>
+    <button class="tab-btn" onclick="openTab('leads')">Leads</button>
+    <button class="tab-btn" onclick="openTab('about')">About</button>
+  </div>  <section id="dashboard" class="tab-content active">
+    <h2>Dashboard</h2>
+    <p>Manage your client leads efficiently.</p>
+  </section>  <section id="add" class="tab-content">
+    <h2>Add New Lead</h2>
+    <input type="text" id="name" placeholder="Client Name">
+    <input type="email" id="email" placeholder="Client Email">
     <button onclick="addLead()">Add Lead</button>
-  </div>
-
-  <h2>Leads</h2>
-  <div id="list"></div>
-
-</div>
-
-<script src="script.js"></script>
-</body>
+  </section>  <section id="leads" class="tab-content">
+    <h2>All Leads</h2>
+    <ul id="leadList"></ul>
+  </section>  <section id="about" class="tab-content">
+    <h2>About Project</h2>
+    <p>This project helps manage client leads using HTML, CSS, and JavaScript.</p>
+  </section>  <script src="script.js"></script></body>
 </html>
